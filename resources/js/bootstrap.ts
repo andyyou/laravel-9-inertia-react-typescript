@@ -1,4 +1,7 @@
-window._ = require('lodash');
+
+// Reference window type
+// https://stackoverflow.com/questions/12709074/how-do-you-explicitly-set-a-new-property-on-window-in-typescript
+(window as any)._ = require('lodash');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -6,9 +9,9 @@ window._ = require('lodash');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+(window as any).axios = require('axios');
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+(window as any).axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
